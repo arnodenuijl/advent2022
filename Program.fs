@@ -4,6 +4,6 @@ open q2.q2b
 open q3
 open q4
 open q5
+open q6
 
-q5a()
-q5b()
+q6b()
