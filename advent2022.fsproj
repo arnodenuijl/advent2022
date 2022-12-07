@@ -11,6 +11,10 @@
     <Compile Include="q4.fs" />
     <Compile Include="q5.fs" />
     <Compile Include="q6.fs" />
+    <Compile Include="q7.fs" />
     <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FParsec" Version="1.1.1" />
   </ItemGroup>
 </Project>
