@@ -32,3 +32,20 @@ let unwrapParserResult (r : ParserResult<'a, 'b>) =
     | Success (result, state, pos) -> result
     | Failure (s ,parserError , userState) ->
         failwith (s) 
+
+let inline charToInt c = int c - int '0'
+
+module Seq =
+    let takeUntil predicate (source: seq<_>) =
+        seq {
+            use e = source.GetEnumerator()
+            let mutable latest = Unchecked.defaultof<_>
+            let mutable emitLatest = false
+            while e.MoveNext()
+                  && (latest <- e.Current
+                      predicate latest |> not) do
+                yield latest
+                emitLatest <- true
+            if emitLatest then
+                yield latest
+        }
