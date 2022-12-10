@@ -8,6 +8,7 @@ open q6
 open q7
 open q8
 open q9
+open q10
 
-q9a()
-q9b()
+q10a()
+q10b()
