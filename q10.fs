@@ -38,21 +38,11 @@ let getValueAddCycle (cycle : int) (states : State list) =
 let q10a() = 
     let cmds: Command list = run (sepBy commandParser newline) input |> unwrapParserResult
     let states: (int * int) list = commandsToStates cmds
-
-    let value20: int = getValueAddCycle 20 states
-    let value60: int = getValueAddCycle 60 states
-    let value100: int = getValueAddCycle 100 states
-    let value140: int = getValueAddCycle 140 states
-    let value180: int = getValueAddCycle 180 states
-    let value220: int = getValueAddCycle 220 states
-
     let result = 
-        20 * value20 + 
-        60 * value60 + 
-        100 * value100 + 
-        140 * value140 + 
-        180 * value180 + 
-        220 * value220
+        [20;60;100;140;180;220]
+        |> Seq.map (fun cycle -> cycle * (getValueAddCycle cycle states))
+        |> Seq.sum
+        
     Console.WriteLine $"10a: {result}"
     
 let q10b() = 
