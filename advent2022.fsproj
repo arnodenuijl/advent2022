@@ -15,6 +15,7 @@
     <Compile Include="q8.fs" />
     <Compile Include="q9.fs" />
     <Compile Include="q10.fs" />
+    <Compile Include="q11.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
