@@ -16,7 +16,7 @@ module Parsing =
     
     let packetIntParser = pint32 |>> PacketInt
     let intOrListParser = choice [packetIntParser;packetListParser]
-    packetListParserRef := between (pstring "[") (pstring "]") (sepBy intOrListParser (pstring ",")) |>> PacketList
+    packetListParserRef.Value <- between (pstring "[") (pstring "]") (sepBy intOrListParser (pstring ",")) |>> PacketList
 
     let packetPairParser = packetListParser .>> skipNewline .>>. packetListParser
     let packetPairsParser = sepBy packetPairParser (skipNewline >>. skipNewline)
