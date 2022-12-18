@@ -16,6 +16,7 @@ open q14
 open q15
 open q16
 open q17
+open q18
 
-// q17a()
-q17b()
+q18a()
+q18b()
